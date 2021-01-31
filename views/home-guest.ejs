@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('includes/header')  %>
+
+
+  <!-- +++++++++MAIN CONTENT ++++++++++++++ -->
+  <main id="content">
+    <!-- Hero Section -->
+    <div class="mb-4 gradient-overlay">
+      <img class="bg-img-hero "
+        src="https://images.pexels.com/photos/3807742/pexels-photo-3807742.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        alt="image-hero">
+      <div class="hero-content container-fluid ">
+
+        
+      <%- include('includes/flash') %>
+
+        <div class="d-lg-flex align-items-lg-center ">
+          <div class="container space-2 space-0--lg mt-lg-8">
+            <div class="row justify-content-lg-between align-items-lg-center">
+              <div class="mb-4 col-lg-4 mb-lg-0 titleForm">
+                <!-- title -->
+                <span class="mb-2 text-white d-block text-uppercase ">Let's konnek</span>
+                <h1 class="mb-0 text-white display-2 fw-normal">Easy way to find connections</h1>
+                <!-- End Title -->
+              </div>
+
+              <div class="col-lg-5 ">
+                <!-- Sign Up Form -->
+                <div class="p-4 bg-white rounded shadow-sm formContainer">
+                  <form action="/register" method="POST" id="registration-form">
+
+                     <% regErrors.forEach(function(message)  { %>
+                      <div class="alert alert-danger small"><%= message %></div>
+                     <% }) %>
+
+                    <div class="mb-4">
+                      <h2 class="h4">Sign Up For Free</h2>
+                    </div>
+                    <!-- Input -->
+                    <div class="form-group">
+                      <label for="username-register" class="mb-1 text-muted"><small>Username</small></label>
+                      <input name="username" id="username-register" class="form-control" type="text"
+                        placeholder="Pick a username" autocomplete="off">
+                    </div>
+                    <!-- End Input -->
+                    <!-- Input -->
+                    <div class="form-group">
+                      <label for="email-register" class="mb-1 text-muted"><small>Email</small></label>
+                      <input name="email" id="email-register" class="form-control" type="text"
+                        placeholder="Your email" autocomplete="off">
+                    </div>
+                    <!-- End Input -->
+                    <!-- Input -->
+                    <div class="form-group">
+                      <label for="password-register" class="mb-1 text-muted"><small>Password</small></label>
+                      <input name="password" id="password-register" class="form-control" type="password"
+                        placeholder="Create a password" autocomplete="off">
+                    </div>
+                    <!-- End Input -->
+                    <div class="d-grid">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                      <button type="submit" class="py-2 mt-4 btn btn-success">Sign up</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="container fixed text-center d-flex justify-content-center ">
+    <div class="row blog">
+      <div class="col-md-12">
+        <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
+
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <div class="carousel-item active ">
+              <div class="row ">
+                <div class="col-sm-3 ">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/google.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/slack.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/amazon.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/airbnb.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+              </div>
+              <!--.row-->
+            </div>
+            <!--.item-->
+
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/airbnb.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/samsung.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/paypal.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+                <div class="col-sm-3">
+                  <a href="#">
+                    <img src="https://htmlstream.com/preview/space-v1.6.1/assets/img/clients/spotify.png" alt="Image"
+                      style="max-width:50%;">
+                  </a>
+                </div>
+              </div>
+              <!--.row-->
+            </div>
+            <!--.item-->
+
+          </div>
+          <!--.carousel-inner-->
+        </div>
+        <!--.Carousel-->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="my-2 border-top"></div>
+  <%- include('includes/footer') %>

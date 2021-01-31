@@ -1,0 +1,32 @@
+
+    <!-- <div class="my-5 border-top"></div> -->
+    <!-- footer -->
+    <footer class="mt-4 footer bg-dark fixed-bottom ">
+        <div class="container my-4 d-flex justify-content-between ">
+            <p class="m-0 text-white">Copyright &copy; 2019 <a href="/" class="text-muted">Konnekapp</a>. All
+                rights
+                reserved.</p>
+
+            <div class="icons ">
+                <i class="bi bi-facebook" style="color: aliceblue; padding-right:10px;"></i>
+                <i class="bi bi-twitter" style="color: aliceblue; padding-right:10px;"></i>
+                <i class="bi bi-instagram" style="color: aliceblue;padding-right:10px;"></i>
+                <i class="bi bi-linkedin" style="color: aliceblue;padding-right:10px;"></i>
+                <i class="bi bi-youtube" style="color: aliceblue;padding-right:10px;"></i>
+            </div>
+        </div>
+    </footer>
+
+  <% if (user) { %>
+    <div id="chat-wrapper" class="chat-wrapper shadow border-top border-left border-right"></div>
+    <script src="/socket.io/socket.io.js"></script>
+  <% } %>
+
+    <!-- end footer -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+    <script src="/main-bundled.js"></script>
+</body>
+
+</html>

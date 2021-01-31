@@ -1,0 +1,31 @@
+    <%- include('includes/header') %>
+
+    <!-- +++++++++MAIN CONTENT ++++++++++++++ -->
+
+    <!-- Hero Section -->
+
+
+    <div class="container py-md-3 createPost">
+
+        <%- include('includes/flash') %>
+
+        <a class="small fonot-weight-bold" href="/post/<%= post._id %>">&laquo; Back to post permalink</a>
+       
+        <form class="mt-4" action="/post/<%= post._id %>/edit" method="POST">
+            <div class="form-group">
+                <label for="post-title" class="mb-1 text-muted"><small>Title</small></label>
+                <input required name="title" value="<%= post.title %>" id="post-title" class="form-control form-control-lg form-control-title"
+                    type="text" placeholder="" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="post-body" class="mb-1 text-muted"><small>Body Content</small></label>
+                <textarea required name="body" id="post-body" class="body-content tall-textarea form-control" type="text" rows="10"><%= post.body %></textarea>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="mt-4 btn btn-primary">Save New Updates</button>
+        </form>
+    </div>
+
+
+ <%- include('includes/footer') %>
+ 

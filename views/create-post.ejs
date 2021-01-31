@@ -1,0 +1,26 @@
+    <%- include('includes/header') %>
+
+    <!-- +++++++++MAIN CONTENT ++++++++++++++ -->
+
+    <!-- Hero Section -->
+
+    <div class="container py-md-3 createPost">
+        <%- include('includes/flash') %>
+        <form action="/create-post" method="POST">
+            <div class="form-group">
+                <label for="post-title" class="mb-1 text-muted"><small>Title</small></label>
+                <input required name="title" id="post-title" class="form-control form-control-lg form-control-title"
+                    type="text" placeholder="" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="post-body" class="mb-1 text-muted"><small>Body Content</small></label>
+                <textarea required name="body" id="post-body" class="body-content tall-textarea form-control" type="text" rows="8"></textarea>
+            </div>
+
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="mt-4 btn btn-primary">Save New Post</button>
+        </form>
+    </div>
+
+
+ <%- include('includes/footer') %>
