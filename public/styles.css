@@ -5,7 +5,9 @@
 h2 {
   padding-top: 7rem;
 }
-
+.Signup_forFree {
+  font-size: 2rem;
+}
 #content {
   position: relative;
 }
