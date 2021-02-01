@@ -1,18 +1,53 @@
 const Post = require("../models/Post");
+const sendgrid = require("@sendgrid/mail");
+sendgrid.setApiKey(process.env.SEND_GRID_KEY);
 
 exports.viewCreateScreen = function (req, res) {
   res.render("create-post");
 };
+
+// exports.create = function (req, res) {
+//   let post = new Post(req.body, req.session.user._id);
+//   post
+//     .create()
+//     .then(function (newId) {
+//       req.flash("success", "New post successfully created.");
+//       req.session.save(() => res.redirect(`/post/${newId}`));
+//     })
+//     .catch(function (errors) {
+//       errors.forEach((error) => req.flash("errors", error));
+//       req.session.save(() => res.redirect("/create-post"));
+//     });
+// };
 
 exports.create = function (req, res) {
   let post = new Post(req.body, req.session.user._id);
   post
     .create()
     .then(function (newId) {
+      // res.send("New Post Created.");
+      const msg = {
+        to: "Raftechstack@gmail.com",
+        from: "Raftechstack@gmail.com",
+        subject: "Congrats! on creating a NEW POST",
+        text: "You did a great job creating your post!",
+        html: "You did a <strong>GREAT</strong> job creating your post!",
+      };
+      sendgrid.send(msg).then(
+        () => {},
+        (error) => {
+          console.error(error);
+          if (error.response) {
+            console.error(error.response.body);
+          }
+        }
+      );
+
       req.flash("success", "New post successfully created.");
       req.session.save(() => res.redirect(`/post/${newId}`));
     })
     .catch(function (errors) {
+      // res.send(errors);
       errors.forEach((error) => req.flash("errors", error));
       req.session.save(() => res.redirect("/create-post"));
     });

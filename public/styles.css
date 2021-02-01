@@ -2,9 +2,21 @@
   margin-bottom: 8rem;
 } */
 
-h2 {
-  padding-top: 7rem;
+.navbar {
+  padding-bottom: 8rem;
 }
+.container--narrow {
+  margin: 5rem;
+}
+.editAndDeleteButton {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+/* h2 {
+  padding-top: 71rem;
+} */
 .Signup_forFree {
   font-size: 2rem;
 }

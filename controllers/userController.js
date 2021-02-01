@@ -2,6 +2,9 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 const Follow = require("../models/Follow");
 const jwt = require("jsonwebtoken");
+// send grid email
+const sendgrid = require("@sendgrid/mail");
+sendgrid.setApiKey(process.env.SEND_GRID_KEY);
 
 exports.apiGetPostsByUsername = async function (req, res) {
   try {
@@ -109,21 +112,63 @@ exports.logout = (req, res) => {
   });
 };
 
+// exports.register = function (req, res) {
+//   let user = new User(req.body);
+//   user
+//     .register()
+//     .then(() => {
+//       req.session.user = { username: user.data.username, avatar: user.avatar, _id: user.data._id };
+//       req.session.save(() => {
+//         res.redirect("/");
+//       });
+//     })
+//     .catch((regErrors) => {
+//       regErrors.forEach((error) => {
+//         req.flash("regErrors", error);
+//       });
+//       req.session.save(() => {
+//         res.redirect("/");
+//       });
+//     });
+// };
+
 exports.register = function (req, res) {
   let user = new User(req.body);
   user
     .register()
     .then(() => {
+      const msg = {
+        to: "Raftechstack@gmail.com",
+        from: "Raftechstack@gmail.com",
+        subject: "Thank you for using KOMPLEXAPP, Welcome! and enjoy!!!",
+        text: "Welcome!",
+        html: "Welcome <strong>GREAT</strong> new User!!",
+        templateId: "d-baee5e2aff9a42d88dc18627246780ff",
+        dynamicTemplateData: {
+          name: user.data.username.toUpperCase().bold(),
+          body: user.data.username.toUpperCase().bold(),
+        },
+      };
+      sendgrid.send(msg).then(
+        () => {},
+        (error) => {
+          console.error(error);
+          if (error.response) {
+            console.error(error.response.body);
+          }
+        }
+      );
       req.session.user = { username: user.data.username, avatar: user.avatar, _id: user.data._id };
-      req.session.save(() => {
+      req.session.save(function () {
         res.redirect("/");
       });
     })
     .catch((regErrors) => {
-      regErrors.forEach((error) => {
+      // res.send(user.errors);
+      regErrors.forEach(function (error) {
         req.flash("regErrors", error);
       });
-      req.session.save(() => {
+      req.session.save(function () {
         res.redirect("/");
       });
     });

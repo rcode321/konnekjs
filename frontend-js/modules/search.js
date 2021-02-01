@@ -110,7 +110,7 @@ export default class Search {
       "beforeend",
       `<div class="search-overlay">
     <div class="search-overlay-top shadow-sm">
-      <div class="container container--narrow">
+      <div class="container">
         <label for="live-search-field" class="search-overlay-icon"><i class="bi bi-search"></i></label>
         <input type="text" id="live-search-field" class="live-search-field" placeholder="What are you interested in?">
         <span class="close-live-search"><i class="bi bi-x-square-fill"></i></span>
@@ -118,7 +118,7 @@ export default class Search {
     </div>
 
     <div class="search-overlay-bottom">
-      <div class="container container--narrow py-3">
+      <div class="container  py-3">
         <div class="circle-loader"></div>
         <div class="live-search-results"></div>
       </div>
