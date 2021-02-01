@@ -138,7 +138,7 @@ exports.register = function (req, res) {
     .register()
     .then(() => {
       const msg = {
-        to: "Raftechstack@gmail.com",
+        to: "Jaimedioscordesesteban@gmail.com",
         from: "Raftechstack@gmail.com",
         subject: "Thank you for using KOMPLEXAPP, Welcome! and enjoy!!!",
         text: "Welcome!",
