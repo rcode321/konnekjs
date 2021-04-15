@@ -29,7 +29,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.308) 0%, rgba(17, 61, 141, 0.5) 100%);
+  background-image: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.308) 0%,
+    rgba(17, 61, 141, 0.5) 100%
+  );
   position: absolute;
   opacity: 0.8;
 }
@@ -122,7 +126,8 @@
   visibility: hidden;
   opacity: 0;
   transform: scale(1.3);
-  transition: 0.33s visibility ease-in-out, 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+  transition: 0.33s visibility ease-in-out, 0.33s opacity ease-in-out,
+    0.33s transform ease-in-out;
   will-change: visibility, transform, opacity;
   /* margin-top: 5rem; */
 }
@@ -391,4 +396,11 @@ textarea.tall-textarea {
     width: 50%;
     padding-bottom: 2rem;
   }
+}
+
+.note-for-user {
+  font-size: 1.4rem;
+  color: rgb(255, 19, 58);
+  text-align: center;
+  padding-bottom: 2rem;
 }

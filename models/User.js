@@ -38,7 +38,10 @@ User.prototype.validate = function () {
     if (this.data.username == "") {
       this.errors.push("You must provide a username.");
     }
-    if (this.data.username != "" && !validator.isAlphanumeric(this.data.username)) {
+    if (
+      this.data.username != "" &&
+      !validator.isAlphanumeric(this.data.username)
+    ) {
       this.errors.push("Username can only contain letters and numbers.");
     }
     if (!validator.isEmail(this.data.email)) {
@@ -61,8 +64,14 @@ User.prototype.validate = function () {
     }
 
     // Only if username is valid then check to see if it's already taken
-    if (this.data.username.length > 2 && this.data.username.length < 31 && validator.isAlphanumeric(this.data.username)) {
-      let usernameExists = await usersCollection.findOne({ username: this.data.username });
+    if (
+      this.data.username.length > 2 &&
+      this.data.username.length < 31 &&
+      validator.isAlphanumeric(this.data.username)
+    ) {
+      let usernameExists = await usersCollection.findOne({
+        username: this.data.username,
+      });
       if (usernameExists) {
         this.errors.push("That username is already taken.");
       }
@@ -70,7 +79,9 @@ User.prototype.validate = function () {
 
     // Only if email is valid then check to see if it's already taken
     if (validator.isEmail(this.data.email)) {
-      let emailExists = await usersCollection.findOne({ email: this.data.email });
+      let emailExists = await usersCollection.findOne({
+        email: this.data.email,
+      });
       if (emailExists) {
         this.errors.push("That email is already being used.");
       }
@@ -85,7 +96,10 @@ User.prototype.login = function () {
     usersCollection
       .findOne({ username: this.data.username })
       .then((attemptedUser) => {
-        if (attemptedUser && bcrypt.compareSync(this.data.password, attemptedUser.password)) {
+        if (
+          attemptedUser &&
+          bcrypt.compareSync(this.data.password, attemptedUser.password)
+        ) {
           this.data = attemptedUser;
           this.getAvatar();
           resolve("Congrats!");

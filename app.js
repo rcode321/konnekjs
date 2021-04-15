@@ -29,7 +29,23 @@ app.use((req, res, next) => {
   // make our markdown function available from within ejs templates
   res.locals.filterUserHTML = (content) => {
     return sanitizeHTML(markdown(content), {
-      allowedTags: ["p", "br", "ul", "ol", "li", "strong", "bold", "i", "em", "h1", "h2", "h3", "h4", "h5", "h6"],
+      allowedTags: [
+        "p",
+        "br",
+        "ul",
+        "ol",
+        "li",
+        "strong",
+        "bold",
+        "i",
+        "em",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+      ],
       allowedAttributes: {},
     });
   };
@@ -87,7 +103,10 @@ io.on("connection", (socket) => {
 
     socket.on("chatMessageFromBrowser", function (data) {
       socket.broadcast.emit("chatMessageFromServer", {
-        message: sanitizeHTML(data.message, { allowedTags: [], allowedAttributes: {} }),
+        message: sanitizeHTML(data.message, {
+          allowedTags: [],
+          allowedAttributes: {},
+        }),
         username: user.username,
         avatar: user.avatar,
       });
