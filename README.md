@@ -1,5 +1,5 @@
 # Social Media App - Vanilla Javascript
-**Social Media App**: "This app have a same functionality like tweeter and other social media platform. user can create a post, delete a post and follow each other.``CRUD`` - ``Operration.`` plus you can send a message/chat to each other."
+**Social Media App**: "This app have a same functionality like twitter and other social media platform. user can create a post, delete a post and follow each other.``CRUD`` - ``Operration.`` plus you can send a message/chat to each other."
 
 <br>
 
@@ -15,7 +15,7 @@ This project is currently done, but still want to make some changes in future up
 
 
 # Functionality
-This App - ``KonneckJS app`` gives you an experience to connect different people who likes to share their story and read interesting topics and more..
+This App - ``KonneckJS`` gives you an experience to connect with different people who likes to share their story and read interesting topics and more..
  
 <br>
 
