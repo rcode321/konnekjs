@@ -20,13 +20,13 @@ This App - ``KonneckJS`` gives you an experience to connect with different peopl
 <br>
 
 
-**User** has a full access of the site including the following:
+**User** : has a full access of the site including the following:
 
-* Sign in and Sign up to Create a account to be able to use it.
+* Sign in and Sign up to Create an account to be able to use it.
 * Create Post and Delete Post
 * Search for topics and Follow a user.
 * Unfollow or Follow User.
-* Chat / Send a message : ``I use Socket.io``
+* Chat / Send a message : `` use Socket.io``
 
 <br>
 
